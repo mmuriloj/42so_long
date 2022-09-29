@@ -1,13 +1,14 @@
 
 #ifndef SO_LONG_H
+# define SO_LONG_H
 
 # include <mlx.h>
 # include <X11/X.h>
 # include <stdlib.h>
 # include <X11/keysym.h>
+# include <fcntl.h>
 
 
-# define SO_LONG_H
 # define WIN_WIDTH 640
 # define WIN_HEIGHT 480
 

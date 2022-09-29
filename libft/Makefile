@@ -21,16 +21,21 @@ OBJS =	 $(SRCS:.c=.o)
 all: $(NAME)
 
 $(NAME):	 $(OBJS)
-	ar -rcs $(NAME) $(OBJS)
+	@ar -rcs $(NAME) $(OBJS)
+	@echo "\033[1;92mLibft created successfully!\033[0m"
 
 $(OBJS):	$(SRCS)
-	$(CC) $(CFLAGS) $(SRCS)
+	@echo "Creating objects..."
+	@$(CC) $(CFLAGS) $(SRCS)
 
 clean:
-	rm -rf $(OBJS) 
+	@echo "Removing objects..."
+	@rm -rf $(OBJS) 
 
 fclean: clean
-	rm -rf $(NAME)
+	@echo "Removing libft.a ..."
+	@rm -rf $(NAME)
+	@echo "\033[1;92mLibft removed successfully!\033[0m"
 
 re: fclean all
 

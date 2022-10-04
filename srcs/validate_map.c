@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mumontei <mumontei@42.sp.org>              +#+  +:+       +#+        */
+/*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 17:07:53 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/04 17:57:43 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/04 23:06:27 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,29 +43,23 @@ void	check_args(int argc, char *argv, t_game *game)
 
 int	validate_map(char *map)
 {
-	int is_valid;
+	int	is_valid;
 
 	is_valid = 0;
 	is_valid = check_extension(map);
 	is_valid = check_empty_line(map);
-	
 	return (is_valid);
 }
 
-int check_extension(char *map)
-{
-
-}
-int check_empty_line(char *map)
+int	check_empty_line(char *map)
 {
 	int		map_fd;
 	char	*row;
-	
+
 	map_fd = open(map, O_RDONLY);
 	while (1)
 	{
 		row = get_next_line(map_fd);
-	//	if ()
 		free(row);
 	}
 }

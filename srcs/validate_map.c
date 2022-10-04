@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mumontei <mumontei@42.sp.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 17:07:53 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/04 23:06:27 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/04 18:12:01 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	check_args(int argc, char *argv, t_game *game)
 		game->map_alloc = 0;
 }
 
+/*
 int	validate_map(char *map)
 {
 	int	is_valid;
@@ -49,7 +50,7 @@ int	validate_map(char *map)
 	is_valid = check_extension(map);
 	is_valid = check_empty_line(map);
 	return (is_valid);
-}
+}*/
 
 int	check_empty_line(char *map)
 {

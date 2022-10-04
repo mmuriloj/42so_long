@@ -60,5 +60,6 @@ void	init_map(t_game *game, char *argv);
 int		validate_map(char *mapfile);
 char	*map_concat(char **s1, const char *s2);
 int		check_empty_line(char *map);
-void	check_args(int argc, char **argv, t_game *game);
+void	check_args(int argc, char *argv, t_game *game);
+void	free_allocated_memory(t_game *game);
 #endif

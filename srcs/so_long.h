@@ -56,4 +56,5 @@ typedef struct s_game
 	t_img	player;
 }	t_game;
 
+void init_map(t_game *game, char *argv);
 #endif

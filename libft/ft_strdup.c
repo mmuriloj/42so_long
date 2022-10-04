@@ -6,7 +6,7 @@
 /*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 18:22:51 by mumontei          #+#    #+#             */
-/*   Updated: 2022/05/10 03:17:25 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/04 08:32:25 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,11 @@ char	*ft_strdup(const char *s)
 	char	*sdup;
 	int		len;
 
-	sdup = NULL;
 	len = ft_strlen(s);
 	sdup = malloc(1 + len * sizeof(char));
 	if (!sdup)
 		return (sdup);
 	ft_memcpy(sdup, s, len);
-	*(sdup + len) = '\0';
+	sdup[len] = '\0';
 	return ((char *)sdup);
 }

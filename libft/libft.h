@@ -80,5 +80,4 @@ char	*hex_to_string(unsigned long int number, char *base);
 int	hex_length(unsigned long int num);
 int	num_digits_sixteen(unsigned long int n);
 
-
 #endif

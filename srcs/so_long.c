@@ -3,27 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mumontei <mumontei@42.sp.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 20:01:51 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/04 00:21:04 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/04 17:59:02 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include "../libft/libft.h"
 
+
 int	main(int argc, char **argv)
 {
 	t_game *game;
+	int map_valid;
 
-	if (argc != 2)
-		return (write(1, "Invalid number of arguments.\n", 29));
 	game = malloc(sizeof(t_game));
 	if (!game)
-		return (NULL);
+		return (0);
+	check_args(argc, argv[1], game);
 	init_map(game, argv[1]);
-	free(game);
+	free_allocated_memory(game);
 }
 
 

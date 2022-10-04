@@ -8,7 +8,6 @@
 # include <X11/keysym.h>
 # include <fcntl.h>
 
-
 # define WIN_WIDTH 640
 # define WIN_HEIGHT 480
 
@@ -47,6 +46,7 @@ typedef struct s_game
 	void	*mlx;
 	void	*mlx_win;
 	int		n_moves;
+	int		map_alloc;
 	t_map	map;
 	t_img	wall;
 	t_img	collectable;
@@ -56,5 +56,9 @@ typedef struct s_game
 	t_img	player;
 }	t_game;
 
-void init_map(t_game *game, char *argv);
+void	init_map(t_game *game, char *argv);
+int		validate_map(char *mapfile);
+char	*map_concat(char **s1, const char *s2);
+int		check_empty_line(char *map);
+void	check_args(int argc, char **argv, t_game *game);
 #endif

@@ -3,19 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   init_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mumontei <mumontei@42.sp.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 16:46:58 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/04 08:59:50 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/04 12:59:25 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include "../libft/libft.h"
-
-void	init_map(t_game *game, char *mapfile);
-char	*map_concat(char **s1, const char *s2);
-
 
 void	init_map(t_game *game, char *mapfile)
 {

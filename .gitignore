@@ -6,4 +6,4 @@ so_long
 *.o
 *a.out
 *eystrokes.c
-
+.vscode

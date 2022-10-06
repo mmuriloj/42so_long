@@ -7,3 +7,5 @@ so_long
 *a.out
 *eystrokes.c
 .vscode
+*.pdf
+.gitignore

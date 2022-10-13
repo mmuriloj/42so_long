@@ -59,7 +59,7 @@ typedef struct s_game
 void	init_map(t_game *game, char *argv);
 void	validate_map(t_game *game, char *map);
 char	*map_concat(char **s1, const char *s2);
-int		check_empty_line(char *map, t_game *game);
+void	check_empty_line(char *map, t_game *game);
 void	check_args(int argc, char *argv, t_game *game);
 void	free_allocated_memory(t_game *game);
 void	error_msg(char *msg, t_game *game);

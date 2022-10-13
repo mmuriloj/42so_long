@@ -6,7 +6,7 @@
 /*   By: mumontei <mumontei@42.sp.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 09:34:34 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/07 09:34:47 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/13 15:49:07 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ void	check_args(int argc, char *argv, t_game *game)
 	game->map_alloc = 1;
 	if (argc < 2)
 	{
-		write(1, "Invalid number of arguments.\nMap file is missing\n", 49);
+		ft_printf("Invalid number of arguments.\nMap file is missing\n");
 		game->map_alloc = 0;
 	}
 	else if (argc > 2)
 	{
-		write(1, "Too many arguments.\n", 20);
+		ft_printf("Too many arguments.\n");
 		game->map_alloc = 0;
 	}
 	i = ft_strlen(argv) - 1;

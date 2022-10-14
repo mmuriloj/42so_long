@@ -6,7 +6,7 @@
 /*   By: mumontei <mumontei@42.sp.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 18:41:31 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/05 19:07:03 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/14 11:34:44 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,22 @@
 void	error_msg(char *msg, t_game *game)
 {
 	if (game->map_alloc == 1)
-		game->map_alloc = 0;
+		free_map(game);
 	ft_printf("%s\n", msg);
 	free(game);
 	exit(EXIT_FAILURE);
+}
+
+void free_map(t_game *game)
+{
+	int row;
+	
+	game->map_alloc = 0;
+	row = 0;
+	while (row < game->map.rows)
+	{
+		free(game->map.loaded[row]);
+		row++;
+	}
+	free(game->map.loaded);
 }

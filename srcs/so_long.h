@@ -6,7 +6,7 @@
 /*   By: mumontei <mumontei@42.sp.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 10:54:43 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/14 14:51:13 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/14 15:51:44 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ void	check_map_shape(t_game *game);
 void	check_args(int argc, char *argv, t_game *game, size_t len);
 void	check_map_chars(char *tmp_map, t_game *game);
 void	check_empty_line(char *map, t_game *game);
+void	count_map_elems(char *map, t_game *game);
 void	free_allocated_memory(t_game *game);
 void	free_map(t_game *game);
 void	error_msg(char *msg, t_game *game);

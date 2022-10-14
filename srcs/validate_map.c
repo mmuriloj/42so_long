@@ -6,7 +6,7 @@
 /*   By: mumontei <mumontei@42.sp.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 17:07:53 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/14 15:09:05 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/14 15:59:15 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	parse_map(char *map, t_game *game)
 	game->map_alloc = 1;
 	check_empty_line(tmp_map, game);
 	check_map_chars(tmp_map, game);
+	count_map_elems(tmp_map, game);
 	free(tmp_map);
 }
 
@@ -61,43 +62,5 @@ void check_empty_line(char *map, t_game *game)
 		if (map[i] == '\n' && map[i + 1] == '\n')
 			error_msg("Error. Map has an empty line somewhere in between.", game);
 		i++;
-	}
-}
-
-void	check_map_shape(t_game *game)
-{
-	int i;
-	int cols;
-	int len1;
-	int len2;
-	
-	cols = ft_strlen((char *) game->map.loaded[0]);
-	i = 0;
-	while((char *)game->map.loaded[i+1] && (char *)game->map.loaded[i])
-	{
-		len1 = ft_strlen((char *) game->map.loaded[i]);
-		len2 = ft_strlen((char *) game->map.loaded[i +1]);
-		if (len1 != len2)
-			error_msg("Error. Map is not rectangular", game);
-		i++;
-	}
-}
-
-void	check_map_chars(char *map, t_game *game)
-{
-	int i;
-	
-	i = 0;
-	ft_printf("\n%s\n", map);
-	while (map[i])
-	{
-		if (!(map[i] == 48 || map[i] == 49 || map[i] == '\n' \
-		|| map[i] == 67 || map[i] == 69 || map[i] == 80))
-		{
-			ft_printf("Mapfile error: char '%c' ", (char) map[i]);
-			error_msg("forbidden", game);
-		}	
-		i++;
-		//ft_printf(", i: %d\n", i);
 	}
 }

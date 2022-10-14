@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mumontei <mumontei@42.sp.org>              +#+  +:+       +#+        */
+/*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 17:07:53 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/14 15:59:15 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/14 23:57:27 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	parse_map(char *map, t_game *game)
 	fd = open(map, O_RDONLY);
 	if (fd == -1)
 		error_msg("Error. Map could not be loaded.", game);
-	while(1)
+	while (1)
 	{
 		row = get_next_line(fd);
 		if (row == NULL)
@@ -48,7 +48,7 @@ void	parse_map(char *map, t_game *game)
 	free(tmp_map);
 }
 
-void check_empty_line(char *map, t_game *game)
+void	check_empty_line(char *map, t_game *game)
 {
 	int	i;
 	int	len;
@@ -60,7 +60,7 @@ void check_empty_line(char *map, t_game *game)
 	while (map[i + 1] != '\0')
 	{
 		if (map[i] == '\n' && map[i + 1] == '\n')
-			error_msg("Error. Map has an empty line somewhere in between.", game);
+			error_msg("Map has an empty line somewhere in between.", game);
 		i++;
 	}
 }

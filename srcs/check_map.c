@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mumontei <mumontei@42.sp.org>              +#+  +:+       +#+        */
+/*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 15:58:54 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/14 15:59:19 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/14 23:53:40 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 
 void	check_map_shape(t_game *game)
 {
-	int i;
-	int cols;
-	int len1;
-	int len2;
-	
+	int	i;
+	int	cols;
+	int	len1;
+	int	len2;
+
 	cols = ft_strlen((char *) game->map.loaded[0]);
 	i = 0;
-	while((char *)game->map.loaded[i+1] && (char *)game->map.loaded[i])
+	while ((char *)game->map.loaded[i + 1] && (char *)game->map.loaded[i])
 	{
 		len1 = ft_strlen((char *) game->map.loaded[i]);
 		len2 = ft_strlen((char *) game->map.loaded[i +1]);
@@ -34,8 +34,8 @@ void	check_map_shape(t_game *game)
 
 void	check_map_chars(char *map, t_game *game)
 {
-	int i;
-	
+	int	i;
+
 	i = 0;
 	while (map[i])
 	{
@@ -49,16 +49,15 @@ void	check_map_chars(char *map, t_game *game)
 	}
 }
 
-void count_map_elems(char *map, t_game *game)
+void	count_map_elems(char *map, t_game *game)
 {
-	int 
+	int	i;
 
 	i = 0;
-
 	game->map.n_collects = 0;
 	game->map.n_exits = 0;
 	game->map.n_collects = 0;
-	while(map[i] != '\0')
+	while (map[i] != '\0')
 	{
 		if (map[i] == 'C')
 			game->map.n_collects++;
@@ -68,6 +67,8 @@ void count_map_elems(char *map, t_game *game)
 			game->map.n_players++;
 		i++;
 	}
-	if (game->map.n_collects < 1 || game->map.n_exits < 1 || game->map.n_players != 1)
-		error_msg("Map must contain 1 starting position and at least 1 exit and 1 collectible", game);
+	if (game->map.n_collects < 1 || game->map.n_exits < 1 \
+	|| game->map.n_players != 1)
+		error_msg("Map must contain 1 starting\
+position and at least 1 exit and 1 collectible", game);
 }

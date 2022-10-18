@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mumontei <mumontei@42.sp.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 15:58:54 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/14 23:53:40 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/18 12:03:17 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	check_map_shape(t_game *game)
 			error_msg("Error. Map is not rectangular", game);
 		i++;
 	}
+	game->map.cols = cols;
 }
 
 void	check_map_chars(char *map, t_game *game)
@@ -67,8 +68,8 @@ void	count_map_elems(char *map, t_game *game)
 			game->map.n_players++;
 		i++;
 	}
-	if (game->map.n_collects < 1 || game->map.n_exits < 1 \
+	if (game->map.n_collects < 1 || game->map.n_exits != 1 \
 	|| game->map.n_players != 1)
-		error_msg("Map must contain 1 starting\
-position and at least 1 exit and 1 collectible", game);
+		error_msg("Map must contain 1 starting \
+position, 1 exit and, at least, 1 collectible", game);
 }

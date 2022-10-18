@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_map.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mumontei <mumontei@42.sp.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 17:07:53 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/14 23:57:27 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/18 15:30:29 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ void	validate_map(char *map, t_game *game)
 {
 	parse_map(map, game);
 	check_map_shape(game);
+	check_boundaries(game);
+	if (game->map.valid == 1)
+		ft_printf("Map sucessfully loaded!\n");
+	else
+		error_msg("Error. Map couldn't be loaded.", game);
 }
 
 void	parse_map(char *map, t_game *game)
@@ -41,7 +46,7 @@ void	parse_map(char *map, t_game *game)
 	}
 	close(fd);
 	game->map.loaded = ft_split(tmp_map, '\n');
-	game->map_alloc = 1;
+	game->map.valid = 1;
 	check_empty_line(tmp_map, game);
 	check_map_chars(tmp_map, game);
 	count_map_elems(tmp_map, game);

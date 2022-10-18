@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mumontei <mumontei@42.sp.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 20:01:51 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/14 23:56:13 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/18 16:21:50 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 	if (!argv[1])
 		error_msg("Map file is missing.", game);
 	check_args(argc, argv[1], game, ft_strlen(argv[1]));
-	/*if (game->map_alloc == 0)
+	/*if (game->map.valid == 0)
 	{
 		free(game);
 		game = NULL;

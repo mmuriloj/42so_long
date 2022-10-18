@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: mumontei <mumontei@42.sp.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 10:54:43 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/14 23:56:33 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/18 15:45:13 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct s_position
 
 typedef struct t_map
 {
-	int			alloc;
+	int			valid;
 	int			rows;
 	int			cols;
 	int			n_collects;
@@ -59,7 +59,6 @@ typedef struct s_game
 	void	*mlx;
 	void	*mlx_win;
 	int		n_moves;
-	int		map_alloc;
 	t_map	map;
 	t_img	wall;
 	t_img	collectable;
@@ -74,11 +73,13 @@ void	validate_map(char *map, t_game *game);
 char	*map_concat(char **s1, const char *s2);
 void	check_map_shape(t_game *game);
 void	check_args(int argc, char *argv, t_game *game, size_t len);
+void	check_boundaries(t_game *game);
 void	check_map_chars(char *tmp_map, t_game *game);
 void	check_empty_line(char *map, t_game *game);
 void	count_map_elems(char *map, t_game *game);
 void	free_allocated_memory(t_game *game);
 void	free_map(t_game *game);
 void	error_msg(char *msg, t_game *game);
+int		invalid_boundary(char *row);
 void	parse_map(char *map, t_game *game);
 #endif

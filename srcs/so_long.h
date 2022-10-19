@@ -6,7 +6,7 @@
 /*   By: mumontei <mumontei@42.sp.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 10:54:43 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/18 15:45:13 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/19 15:37:03 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,18 +68,18 @@ typedef struct s_game
 	t_img	player;
 }	t_game;
 
-void	init_map(t_game *game, char *argv);
-void	validate_map(char *map, t_game *game);
-char	*map_concat(char **s1, const char *s2);
-void	check_map_shape(t_game *game);
 void	check_args(int argc, char *argv, t_game *game, size_t len);
 void	check_boundaries(t_game *game);
-void	check_map_chars(char *tmp_map, t_game *game);
 void	check_empty_line(char *map, t_game *game);
+void	check_map_chars(char *tmp_map, t_game *game);
 void	count_map_elems(char *map, t_game *game);
+void	check_map_shape(t_game *game);
+void	error_msg(char *msg, t_game *game);
 void	free_allocated_memory(t_game *game);
 void	free_map(t_game *game);
-void	error_msg(char *msg, t_game *game);
+void	init_map(t_game *game, char *argv);
 int		invalid_boundary(char *row);
+char	*map_concat(char **s1, const char *s2);
 void	parse_map(char *map, t_game *game);
+void	validate_map(char *map, t_game *game);
 #endif

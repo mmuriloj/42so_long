@@ -6,7 +6,7 @@
 /*   By: mumontei <mumontei@42.sp.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 20:01:51 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/18 16:21:50 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/20 18:56:39 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,13 @@ int	main(int argc, char **argv)
 		return (0);
 	}*/
 	validate_map(argv[1], game);
-//	init_map(game, argv[1]);
+	
+	ft_printf("valid %d\n", game->map.valid);
+	ft_printf("rows %d\n", game->map.rows);
+	ft_printf("cols %d\n", game->map.cols);
+	ft_printf("n_collects %d\n", game->map.n_collects);
+	ft_printf("n_exits %d\n", game->map.n_exits);
+	ft_printf("n_players %d\n", game->map.n_players);
+	start_mlx(game);
 //	free_allocated_memory(game);
 }

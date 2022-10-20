@@ -6,7 +6,7 @@
 /*   By: mumontei <mumontei@42.sp.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 17:07:53 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/18 15:30:29 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/20 18:33:32 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	validate_map(char *map, t_game *game)
 	parse_map(map, game);
 	check_map_shape(game);
 	check_boundaries(game);
+	//flood_fill(game)
 	if (game->map.valid == 1)
 		ft_printf("Map sucessfully loaded!\n");
 	else
@@ -68,4 +69,19 @@ void	check_empty_line(char *map, t_game *game)
 			error_msg("Map has an empty line somewhere in between.", game);
 		i++;
 	}
+}
+
+char	*map_concat(char **s1, const char *s2)
+{
+	char	*s;
+
+	if (!s1 || !s2)
+		return (NULL);
+	s = (char *)ft_calloc(ft_strlen(*s1) + ft_strlen(s2) + 1, sizeof(char));
+	if (!s)
+		return (NULL);
+	ft_strlcpy(s, *s1, ft_strlen(*s1) + 1);
+	ft_strlcat(s, s2, ft_strlen(*s1) + ft_strlen(s2) + 1);
+	free(*s1);
+	return (s);
 }

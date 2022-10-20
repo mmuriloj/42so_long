@@ -6,7 +6,7 @@
 /*   By: mumontei <mumontei@42.sp.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 10:54:43 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/19 15:37:03 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/20 18:35:55 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # include <X11/keysym.h>
 # include <fcntl.h>
 
-# define WIN_WIDTH 640
-# define WIN_HEIGHT 480
+# define XPM_WIDTH 32
+# define XPM_HEIGHT 32
 
 # define COLLECT_XPM	"imgs/collectable"
 # define BGROUND_XPM	"imgs/back-ground.xpm"
@@ -81,5 +81,6 @@ void	init_map(t_game *game, char *argv);
 int		invalid_boundary(char *row);
 char	*map_concat(char **s1, const char *s2);
 void	parse_map(char *map, t_game *game);
+void	start_mlx(t_game *game);
 void	validate_map(char *map, t_game *game);
 #endif

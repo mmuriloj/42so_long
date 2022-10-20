@@ -13,14 +13,14 @@
 #include "so_long.h"
 #include "../libft/libft.h"
 
-void check_boundaries(t_game *game)
+void	check_boundaries(t_game *game)
 {
 	int	row;
 	int	col;
 
 	row = 1;
 	if (invalid_boundary(game->map.loaded[0]) || \
-	invalid_boundary(game->map.loaded[game->map.rows-1]))
+	invalid_boundary(game->map.loaded[game->map.rows - 1]))
 		error_msg("Map must be surrounded by walls", game);
 	else
 	{
@@ -34,11 +34,11 @@ void check_boundaries(t_game *game)
 	}
 }
 
-int		invalid_boundary(char *row)
+int	invalid_boundary(char *row)
 {
 	int	i;
 	int	invalid_char;
-	
+
 	i = 0;
 	while (row[i] != '\0')
 	{

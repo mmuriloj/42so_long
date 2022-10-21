@@ -6,7 +6,7 @@
 /*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 20:27:30 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/22 01:55:05 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/22 01:56:44 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	get_sprite(t_game *game, int y, int x)
 {
 	char c;
 
-	c = game->map.loaded[x][y];
+	c = game->map.loaded[y][x];
 	if (c == '1')
 		render_sprite(game, game->wall, x, y);
 	else if (c == '0')

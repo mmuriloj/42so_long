@@ -6,7 +6,7 @@
 /*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 10:54:43 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/21 20:05:47 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/22 01:40:01 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,14 @@ void	create_window(t_game *game);
 void	error_msg(char *msg, t_game *game);
 void	free_allocated_memory(t_game *game);
 void	free_map(t_game *game);
+void	get_sprite(t_game *game, int x, int y);
 void	init_map(t_game *game, char *argv);
 void	init_sprites(t_game *game);
 int		invalid_boundary(char *row);
 t_img	load_sprite(void *ptr, t_game *game, char *xpm);
 char	*map_concat(char **s1, const char *s2);
 void	parse_map(char *map, t_game *game);
+int		render_game(t_game *game);
+void	render_sprite(t_game *game, t_img sprite, int x, int y);
 void	validate_map(char *map, t_game *game);
 #endif

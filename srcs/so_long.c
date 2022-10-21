@@ -6,7 +6,7 @@
 /*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 20:01:51 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/21 20:27:20 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/22 01:47:46 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ int	main(int argc, char **argv)
 	validate_map(argv[1], game);
 	create_window(game);
 	init_sprites(game);
-	ft_printf("rows: %d\ncols: %d\n", i, j);
+	render_game(game);
+	mlx_hook(game->mlx_win, Expose, ExposureMask, render_game, game);
 	mlx_loop(game->mlx);
 //	free_allocated_memory(game);
 }

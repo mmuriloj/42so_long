@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mumontei <mumontei@42.sp.org>              +#+  +:+       +#+        */
+/*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 20:01:51 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/20 18:56:39 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/21 20:27:20 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,9 @@ int	main(int argc, char **argv)
 		return (0);
 	}*/
 	validate_map(argv[1], game);
-	
-	ft_printf("valid %d\n", game->map.valid);
-	ft_printf("rows %d\n", game->map.rows);
-	ft_printf("cols %d\n", game->map.cols);
-	ft_printf("n_collects %d\n", game->map.n_collects);
-	ft_printf("n_exits %d\n", game->map.n_exits);
-	ft_printf("n_players %d\n", game->map.n_players);
-	start_mlx(game);
+	create_window(game);
+	init_sprites(game);
+	ft_printf("rows: %d\ncols: %d\n", i, j);
+	mlx_loop(game->mlx);
 //	free_allocated_memory(game);
 }

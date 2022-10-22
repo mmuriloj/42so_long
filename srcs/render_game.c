@@ -6,7 +6,7 @@
 /*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 20:27:30 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/22 01:56:44 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/22 02:01:14 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ void	get_sprite(t_game *game, int y, int x)
 
 void render_sprite(t_game *game, t_img sprite, int col, int row)
 {
-	ft_printf("%d %d\n", sprite.x, sprite.y);
 	mlx_put_image_to_window(game->mlx, game->mlx_win, \
 	sprite.img_ptr, col * sprite.x, row * sprite.y);
 }

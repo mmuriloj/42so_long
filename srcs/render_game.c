@@ -6,10 +6,9 @@
 /*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 20:27:30 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/22 02:01:14 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/24 20:38:09 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "so_long.h"
 #include "../libft/libft.h"
@@ -30,6 +29,7 @@ int	render_game(t_game *game)
 		}
 		y++;
 	}
+	initial_position(game);
 	return(0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 10:54:43 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/22 01:40:01 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/24 21:18:05 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,15 @@
 # define PLAYER_XPM		"img/player-front.xpm"
 # define WALL_XPM		"img/wall.xpm"
 
+# define KEY_A			97
+# define KEY_S			115
+# define KEY_D			100
+# define KEY_W			119
+# define KEY_ESC		65307
+
+
+# define X 		game->map.player_coord.x
+# define Y 		game->map.player_coord.y
 typedef struct s_position
 {
 	int	x;
@@ -74,6 +83,7 @@ void	check_empty_line(char *map, t_game *game);
 void	check_map_chars(char *tmp_map, t_game *game);
 void	count_map_elems(char *map, t_game *game);
 void	check_map_shape(t_game *game);
+void	count_moves(t_game *game);
 void	create_window(t_game *game);
 void	error_msg(char *msg, t_game *game);
 void	free_allocated_memory(t_game *game);
@@ -83,7 +93,9 @@ void	init_map(t_game *game, char *argv);
 void	init_sprites(t_game *game);
 int		invalid_boundary(char *row);
 t_img	load_sprite(void *ptr, t_game *game, char *xpm);
+void	initial_position(t_game *game);
 char	*map_concat(char **s1, const char *s2);
+void	move_player(int new_y, int new_x,t_game *game);
 void	parse_map(char *map, t_game *game);
 int		render_game(t_game *game);
 void	render_sprite(t_game *game, t_img sprite, int x, int y);

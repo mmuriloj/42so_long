@@ -6,19 +6,13 @@
 /*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:19:03 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/24 21:33:51 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/24 21:38:31 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include "../libft/libft.h"
 
-void count_moves(t_game *game)
-{
-	game->n_moves = 32;
-
-	ft_printf("%d", game->n_moves);
-}
 
 int	key_hook(int usr_input, t_game *game)
 {

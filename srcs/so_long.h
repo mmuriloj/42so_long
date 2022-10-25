@@ -6,7 +6,7 @@
 /*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 10:54:43 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/24 21:18:05 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/25 22:42:21 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct t_map
 	int			n_players;
 	t_position	player_coord;
 	char		**loaded;
+	char		**floodfill;
 }	t_map;
 
 typedef struct s_img
@@ -86,7 +87,8 @@ void	check_map_shape(t_game *game);
 void	count_moves(t_game *game);
 void	create_window(t_game *game);
 void	error_msg(char *msg, t_game *game);
-void	free_allocated_memory(t_game *game);
+void	floodfill(int x, int y, t_game *game);
+void	free_game(t_game *game);
 void	free_map(t_game *game);
 void	get_sprite(t_game *game, int x, int y);
 void	init_map(t_game *game, char *argv);
@@ -100,4 +102,5 @@ void	parse_map(char *map, t_game *game);
 int		render_game(t_game *game);
 void	render_sprite(t_game *game, t_img sprite, int x, int y);
 void	validate_map(char *map, t_game *game);
+void	verify_floodfill(t_game *game);
 #endif

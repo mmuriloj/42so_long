@@ -13,6 +13,7 @@ CLEAN_LIBFT = cd libft/ && make clean && cd ..
 
 
 all: libft
+	cd ..
 	$(CC)
 
 libft:

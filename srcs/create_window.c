@@ -6,7 +6,7 @@
 /*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 18:28:54 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/22 01:51:16 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/25 05:50:07 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,16 @@
 
 void	create_window(t_game *game)
 {
-	int w;
+	int	w;
 	int	h;
 
 	w = game->map.cols * XPM_WIDTH;
 	h = game->map.rows * XPM_HEIGHT;
 	game->mlx = mlx_init();
-	game->mlx_win = mlx_new_window(game->mlx, w, h , "@mumontei's So Long");
-	if(game->mlx == NULL)
+	if (game->mlx == NULL)
 		error_msg("Error. Couldn't start Minilibx.", game);
-	if(game->mlx_win == NULL)
+	game->mlx_win = mlx_new_window(game->mlx, w, h, "@mumontei's So Long");
+	if (game->mlx_win == NULL)
 	{
 		free(game->mlx);
 		error_msg("Error. Couldn't start window.", game);
@@ -38,7 +38,7 @@ t_img	load_sprite(void *ptr, t_game *game, char *xpm)
 	spr.img_ptr = mlx_xpm_file_to_image(ptr, xpm, &spr.x, &spr.y);
 	if (spr.img_ptr == NULL)
 		error_msg("Error. Sprite couldn't be found.", game);
-	return(spr);
+	return (spr);
 }
 
 void	init_sprites(t_game *game)

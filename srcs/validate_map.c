@@ -6,7 +6,7 @@
 /*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 17:07:53 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/25 23:14:44 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/25 23:17:16 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	validate_map(char *map, t_game *game)
 	check_map_shape(game);
 	check_boundaries(game);
 	initial_position(game);
-	//verify_floodfill(game);
+	verify_floodfill(game);
 	if (game->map.valid == 1)
 		ft_printf("Map sucessfully loaded!\n");
 	else

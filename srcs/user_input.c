@@ -6,13 +6,12 @@
 /*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:19:03 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/24 21:38:31 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/25 23:24:53 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include "../libft/libft.h"
-
 
 int	key_hook(int usr_input, t_game *game)
 {
@@ -28,5 +27,3 @@ int	key_hook(int usr_input, t_game *game)
 		error_msg("you have pressed ESC key", game);
 	return (0);
 }
-
-

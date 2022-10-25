@@ -6,7 +6,7 @@
 /*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 10:54:43 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/25 22:42:21 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/25 23:23:58 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ void	get_sprite(t_game *game, int x, int y);
 void	init_map(t_game *game, char *argv);
 void	init_sprites(t_game *game);
 int		invalid_boundary(char *row);
+int		key_hook(int usr_input, t_game *game);
 t_img	load_sprite(void *ptr, t_game *game, char *xpm);
 void	initial_position(t_game *game);
 char	*map_concat(char **s1, const char *s2);

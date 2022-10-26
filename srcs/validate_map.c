@@ -6,16 +6,16 @@
 /*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 17:07:53 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/26 19:40:52 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/27 00:46:42 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include "../libft/libft.h"
 
-void	validate_map(char *map, t_game *game)
+void	validate_map(char *argv, t_game *game)
 {
-	parse_map(map, game);
+	parse_map(argv, game);
 	check_map_shape(game);
 	check_boundaries(game);
 	initial_position(game);
@@ -26,16 +26,22 @@ void	validate_map(char *map, t_game *game)
 		error_msg("Error. Map couldn't be loaded.", game);
 }
 
-void	parse_map(char *map, t_game *game)
+void	parse_map(char *argv, t_game *game)
 {
 	int		fd;
 	char	*row;
 	char	*tmp_map;
 
 	tmp_map = ft_strdup("");
-	fd = open(map, O_RDONLY);
+	fd = open(argv, O_RDONLY);
 	if (fd == -1)
-		error_msg("Error. Map could not be loaded.", game);
+	{
+		free(tmp_map);
+		free(game);
+		ft_printf("Error. Map could not be loaded.");
+		close(fd);
+		exit(0);
+	}
 	while (1)
 	{
 		row = get_next_line(fd);

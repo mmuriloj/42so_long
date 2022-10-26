@@ -6,25 +6,30 @@
 /*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 18:04:08 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/25 23:23:23 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/27 00:09:08 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include "../libft/libft.h"
 
-void	floodfill(int x, int y, t_game *game)
+void	floodfill(int new_x, int new_y, t_game *game)
 {
-	if (game->map.floodfill[y][x] == 'P' || \
-		game->map.floodfill[y][x] == 'E' || \
-		game->map.floodfill[y][x] == 'C' || \
-		game->map.floodfill[y][x] == '0')
+	int	initial_x;
+	int	initial_y;
+
+	initial_x = game->map.player_coord.x;
+	initial_y = game->map.player_coord.y;
+	if (game->map.floodfill[new_y][new_x] == 'P' || \
+		game->map.floodfill[new_y][new_x] == 'E' || \
+		game->map.floodfill[new_y][new_x] == 'C' || \
+		game->map.floodfill[new_y][new_x] == '0')
 	{
-		game->map.floodfill[y][x] = 'V';
-		floodfill(x + 1, y, game);
-		floodfill(x - 1, y, game);
-		floodfill(x, y + 1, game);
-		floodfill(x, y - 1, game);
+		game->map.floodfill[new_y][new_x] = 'V';
+		floodfill(new_x + 1, new_y, game);
+		floodfill(new_x - 1, new_y, game);
+		floodfill(new_x, new_y + 1, game);
+		floodfill(new_x, new_y - 1, game);
 	}
 }
 
@@ -33,7 +38,7 @@ void	verify_floodfill(t_game *game)
 	int	i;
 	int	j;
 
-	floodfill(X, Y, game);
+	floodfill(game->map.player_coord.x, game->map.player_coord.y, game);
 	i = 0;
 	while (i < game->map.rows)
 	{
@@ -44,7 +49,10 @@ void	verify_floodfill(t_game *game)
 			|| game->map.floodfill[i][j] == 'E')
 			{
 				game->map.valid = 0;
-				error_msg("Error. Path is not valid.", game);
+				ft_printf("Error. Path is not valid.\n");
+				free_map(game);
+				free(game);
+				exit(0);
 			}
 			j++;
 		}

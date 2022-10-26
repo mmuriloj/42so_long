@@ -6,7 +6,7 @@
 /*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 10:54:43 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/26 22:25:26 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/26 23:04:30 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,18 @@
 
 # define XPM_WIDTH 32
 # define XPM_HEIGHT 32
-
 # define COLLECT_XPM	"img/collectable.xpm"
 # define BGROUND_XPM	"img/back-ground.xpm"
 # define EXIT_XPM		"img/exit.xpm"
 # define OPEN_XPM		"img/open-exit.xpm"
 # define PLAYER_XPM		"img/player-front.xpm"
 # define WALL_XPM		"img/wall.xpm"
-
 # define KEY_A			97
 # define KEY_S			115
 # define KEY_D			100
 # define KEY_W			119
 # define KEY_ESC		65307
 
-# define X		game->map.player_coord.x
-# define Y		game->map.player_coord.y
 typedef struct s_position
 {
 	int	x;
@@ -98,7 +94,7 @@ int		key_hook(int usr_input, t_game *game);
 t_img	load_sprite(void *ptr, t_game *game, char *xpm);
 void	initial_position(t_game *game);
 char	*map_concat(char **s1, const char *s2);
-void	move_player(int new_y, int new_x,t_game *game);
+void	move_player(int new_y, int new_x, t_game *game);
 void	parse_map(char *map, t_game *game);
 int		render_game(t_game *game);
 void	render_sprite(t_game *game, t_img sprite, int x, int y);

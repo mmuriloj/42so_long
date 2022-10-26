@@ -6,7 +6,7 @@
 /*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 15:58:54 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/26 16:35:19 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/27 00:51:47 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,12 @@ void	check_map_shape(t_game *game)
 		len1 = ft_strlen((char *) game->map.loaded[i]);
 		len2 = ft_strlen((char *) game->map.loaded[i +1]);
 		if (len1 != len2)
-			error_msg("Error. Map is not rectangular", game);
+		{
+			ft_printf("Error. Map is not rectangular");
+			free_map(game);
+			free(game);
+			exit(0);
+		}
 		i++;
 	}
 	game->map.cols = cols;
@@ -43,8 +48,10 @@ void	check_map_chars(char *map, t_game *game)
 		if (!(map[i] == 48 || map[i] == 49 || map[i] == '\n' \
 		|| map[i] == 67 || map[i] == 69 || map[i] == 80))
 		{
-			ft_printf("Mapfile error: char '%c' ", (char) map[i]);
-			error_msg("forbidden", game);
+			ft_printf("Mapfile error: char '%c' forbidden", (char) map[i]);
+			free(map);
+			free(game);
+			exit(EXIT_FAILURE);
 		}	
 		i++;
 	}
@@ -55,10 +62,6 @@ void	count_map_elems(char *map, t_game *game)
 	int	i;
 
 	i = 0;
-	game->map.n_players = 0;
-	game->map.n_collects = 0;
-	game->map.n_exits = 0;
-	game->map.n_collects = 0;
 	while (map[i] != '\0')
 	{
 		if (map[i] == 'C')
@@ -71,6 +74,11 @@ void	count_map_elems(char *map, t_game *game)
 	}
 	if (game->map.n_collects < 1 || game->map.n_exits != 1 \
 	|| game->map.n_players != 1)
-		error_msg("Map must contain 1 starting \
-position, 1 exit and, at least, 1 collectible", game);
+	{
+		ft_printf("Map must contain\n1 starting position\n1 exit \
+		\nat least, 1 collectible\n");
+		free(map);
+		free(game);
+		exit(EXIT_FAILURE);
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 18:41:31 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/26 22:35:15 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/26 23:24:21 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	error_msg(char *msg, t_game *game)
 		free_map(game);
 	ft_printf("%s\n", msg);
 	free(game);
+	free_game(game);
 	exit(EXIT_FAILURE);
 }
 

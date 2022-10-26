@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_boundaries.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mumontei <mumontei@42.sp.org>              +#+  +:+       +#+        */
+/*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 12:03:39 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/18 16:22:07 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/27 00:28:58 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,24 @@ void	check_boundaries(t_game *game)
 	row = 1;
 	if (invalid_boundary(game->map.loaded[0]) || \
 	invalid_boundary(game->map.loaded[game->map.rows - 1]))
-		error_msg("Map must be surrounded by walls", game);
+	{
+		free_map(game);
+		free(game);
+		ft_printf("Map must be surrounded by walls");
+		exit(EXIT_FAILURE);
+	}
 	else
 	{
 		while (row < game->map.rows - 1)
 		{
 			if (game->map.loaded[row][0] != '1' || \
 			game->map.loaded[row][game->map.cols - 1] != '1')
-				error_msg("Map must be surrounded by walls", game);
+			{
+				free_map(game);
+				free(game);
+				ft_printf("Map must be surrounded by walls");
+				exit(EXIT_FAILURE);
+			}
 			row++;
 		}
 	}

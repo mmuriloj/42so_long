@@ -6,7 +6,7 @@
 /*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 20:01:51 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/26 22:24:15 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/27 00:13:28 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,11 @@ int	main(int argc, char **argv)
 
 	game = malloc(sizeof(t_game));
 	if (!argv[1])
-		error_msg("Map file is missing.", game);
+	{
+		ft_printf("Map file is missing.");
+		free(game);
+		exit(0);
+	}
 	init_game_vars(game);
 	check_args(argc, argv[1], game, ft_strlen(argv[1]));
 	validate_map(argv[1], game);

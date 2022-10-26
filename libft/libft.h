@@ -49,10 +49,8 @@ void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
 void	ft_bzero(void *s, size_t n);
-//void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int nb, int fd);
-//void	ft_putstr_fd(char *s, int fd);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 
 char	*get_next_line(int fd);
@@ -65,19 +63,18 @@ void	forget(char **arr);
 void	nullify(char **str);
 
 //printf
-int	ft_printf(const char *str, ...);
-int	format_identifier(const char *str, va_list args);
-int	ft_putchar_fd(char c, int fd);
-int	ft_putstr_fd(char *s, int fd);
-int	n_digits(int n);
-int	ft_print_int(int num);
-int	print_ptr(void *ptr);
-//int	ft_strlen(const char *s);
+int		ft_printf(const char *str, ...);
+int		format_identifier(const char *str, va_list args);
+int		ft_putchar_fd(char c, int fd);
+int		ft_putstr_fd(char *s, int fd);
+int		n_digits(int n);
+int		ft_print_int(int num);
+int		print_ptr(void *ptr);
 char	*int_to_hex(size_t n);
-int	ft_print_u(unsigned int num);
-int	ft_print_hex(unsigned int nbr, char *base);
+int		ft_print_u(unsigned int num);
+int		ft_print_hex(unsigned int nbr, char *base);
 char	*hex_to_string(unsigned long int number, char *base);
-int	hex_length(unsigned long int num);
-int	num_digits_sixteen(unsigned long int n);
+int		hex_length(unsigned long int num);
+int		num_digits_sixteen(unsigned long int n);
 
 #endif

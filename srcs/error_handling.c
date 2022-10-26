@@ -6,7 +6,7 @@
 /*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 18:41:31 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/25 23:20:33 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/26 22:35:15 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,15 @@ void	free_map(t_game *game)
 {
 	int	row;
 
-	game->map.valid = 0;
 	row = 0;
 	while (row < game->map.rows)
 	{
 		free(game->map.loaded[row]);
+		free(game->map.floodfill[row]);
 		row++;
 	}
 	free(game->map.loaded);
+	free(game->map.floodfill);
 }
 
 void	free_game(t_game *game)
@@ -44,6 +45,7 @@ void	free_game(t_game *game)
 	mlx_destroy_image(game->mlx, game->exit.img_ptr);
 	mlx_destroy_image(game->mlx, game->open_exit.img_ptr);
 	mlx_destroy_image(game->mlx, game->player.img_ptr);
+	free_map(game);
 	mlx_destroy_window(game->mlx, game->mlx_win);
 	mlx_destroy_display(game->mlx);
 	free(game->mlx);

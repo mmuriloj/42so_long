@@ -6,7 +6,7 @@
 /*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 17:19:03 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/25 23:24:53 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/26 20:02:09 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ int	key_hook(int usr_input, t_game *game)
 	if (usr_input == KEY_W)
 		move_player(Y - 1, X, game);
 	if (usr_input == KEY_ESC)
-		error_msg("you have pressed ESC key", game);
+	{
+		ft_printf("you have pressed ESC key. Quiting game...\n", game);
+		free_game(game);
+	}
 	return (0);
 }

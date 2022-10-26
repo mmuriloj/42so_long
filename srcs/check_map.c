@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mumontei <mumontei@42.sp.org>              +#+  +:+       +#+        */
+/*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 15:58:54 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/18 12:03:17 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/26 16:35:19 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	count_map_elems(char *map, t_game *game)
 	int	i;
 
 	i = 0;
+	game->map.n_players = 0;
 	game->map.n_collects = 0;
 	game->map.n_exits = 0;
 	game->map.n_collects = 0;

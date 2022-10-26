@@ -6,7 +6,7 @@
 /*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:22:23 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/24 22:28:16 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/26 20:05:19 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,10 @@ void	move_player(int new_y, int new_x, t_game *game)
 	old_x = X;
 	old_y = Y;
 	if (game->map.loaded[new_y][new_x] == 'E' && game->map.n_collects == 0)
+	{
+		ft_printf("Congratulations. You won!\n");
 		free_game(game);
+	}	
 	else if ((game->map.loaded[new_y][new_x] == '0')
 	|| (game->map.loaded[new_y][new_x] == 'C'))
 	{

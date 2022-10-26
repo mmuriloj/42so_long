@@ -6,7 +6,7 @@
 /*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 17:07:53 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/25 23:17:16 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/26 19:40:52 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	parse_map(char *map, t_game *game)
 	char	*tmp_map;
 
 	tmp_map = ft_strdup("");
-	game->map.rows = 0;
 	fd = open(map, O_RDONLY);
 	if (fd == -1)
 		error_msg("Error. Map could not be loaded.", game);
@@ -47,12 +46,12 @@ void	parse_map(char *map, t_game *game)
 		game->map.rows++;
 	}
 	close(fd);
-	game->map.loaded = ft_split(tmp_map, '\n');
-	game->map.floodfill = ft_split(tmp_map, '\n');
-	game->map.valid = 1;
 	check_empty_line(tmp_map, game);
 	check_map_chars(tmp_map, game);
 	count_map_elems(tmp_map, game);
+	game->map.loaded = ft_split(tmp_map, '\n');
+	game->map.floodfill = ft_split(tmp_map, '\n');
+	game->map.valid = 1;
 	free(tmp_map);
 }
 

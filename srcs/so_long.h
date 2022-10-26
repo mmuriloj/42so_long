@@ -6,7 +6,7 @@
 /*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 10:54:43 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/25 23:23:58 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/26 22:25:26 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,8 @@
 # define KEY_W			119
 # define KEY_ESC		65307
 
-
-# define X 		game->map.player_coord.x
-# define Y 		game->map.player_coord.y
+# define X		game->map.player_coord.x
+# define Y		game->map.player_coord.y
 typedef struct s_position
 {
 	int	x;
@@ -91,6 +90,7 @@ void	floodfill(int x, int y, t_game *game);
 void	free_game(t_game *game);
 void	free_map(t_game *game);
 void	get_sprite(t_game *game, int x, int y);
+void	init_game_vars(t_game *game);
 void	init_map(t_game *game, char *argv);
 void	init_sprites(t_game *game);
 int		invalid_boundary(char *row);

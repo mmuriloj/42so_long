@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mumontei <mumontei@42.sp.org>              +#+  +:+       +#+        */
+/*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 21:06:26 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/04 12:42:55 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/25 23:50:53 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	*ft_memcpy(void *dest, const void *src, size_t len)
 {
 	const char	*char_src;
-	char	*char_dest;
+	char		*char_dest;
 	size_t		i;
 
 	i = 0;

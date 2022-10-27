@@ -6,7 +6,7 @@
 /*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 18:41:31 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/26 23:24:21 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/28 00:01:40 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void	error_msg(char *msg, t_game *game)
 	if (game->map.valid == 1)
 		free_map(game);
 	ft_printf("%s\n", msg);
-	free(game);
 	free_game(game);
-	exit(EXIT_FAILURE);
+	free(game);
+	exit(0);
 }
 
 void	free_map(t_game *game)
@@ -38,7 +38,7 @@ void	free_map(t_game *game)
 	free(game->map.floodfill);
 }
 
-void	free_game(t_game *game)
+int	free_game(t_game *game)
 {
 	mlx_destroy_image(game->mlx, game->wall.img_ptr);
 	mlx_destroy_image(game->mlx, game->collectable.img_ptr);
@@ -53,3 +53,13 @@ void	free_game(t_game *game)
 	free(game);
 	exit(0);
 }
+
+/*void	destroy_all_images(t_game *game)
+{
+	mlx_destroy_image(game->mlx, game->wall.img_ptr);
+	mlx_destroy_image(game->mlx, game->collectable.img_ptr);
+	mlx_destroy_image(game->mlx, game->background.img_ptr);
+	mlx_destroy_image(game->mlx, game->exit.img_ptr);
+	mlx_destroy_image(game->mlx, game->open_exit.img_ptr);
+	mlx_destroy_image(game->mlx, game->player.img_ptr);
+}*/

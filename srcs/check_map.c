@@ -6,14 +6,24 @@
 /*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 15:58:54 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/27 00:51:47 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/28 00:35:31 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 #include "../libft/libft.h"
 
-void	check_map_shape(t_game *game)
+void	check_map(char *map, t_game *game)
+{
+	check_empty_line(map, game);
+	check_chars(map, game);
+	count_elems(map, game);
+	game->map.loaded = ft_split(map, '\n');
+	game->map.floodfill = ft_split(map, '\n');
+	game->map.valid = 1;
+}
+
+void	check_shape(t_game *game)
 {
 	int	i;
 	int	cols;
@@ -38,7 +48,7 @@ void	check_map_shape(t_game *game)
 	game->map.cols = cols;
 }
 
-void	check_map_chars(char *map, t_game *game)
+void	check_chars(char *map, t_game *game)
 {
 	int	i;
 
@@ -51,13 +61,13 @@ void	check_map_chars(char *map, t_game *game)
 			ft_printf("Mapfile error: char '%c' forbidden", (char) map[i]);
 			free(map);
 			free(game);
-			exit(EXIT_FAILURE);
+			exit(0);
 		}	
 		i++;
 	}
 }
 
-void	count_map_elems(char *map, t_game *game)
+void	count_elems(char *map, t_game *game)
 {
 	int	i;
 
@@ -79,6 +89,33 @@ void	count_map_elems(char *map, t_game *game)
 		\nat least, 1 collectible\n");
 		free(map);
 		free(game);
-		exit(EXIT_FAILURE);
+		exit(0);
+	}
+}
+
+void	check_empty_line(char *map, t_game *game)
+{
+	int	i;
+	int	len;
+
+	len = ft_strlen(map);
+	if (map[0] == '\n' || map[len - 1] == '\n')
+	{
+		ft_printf("Error. Map starts/ends with an empty line.");
+		free(map);
+		free(game);
+		exit(0);
+	}	
+	i = 0;
+	while (map[i + 1] != '\0')
+	{
+		if (map[i] == '\n' && map[i + 1] == '\n')
+		{
+			ft_printf("Map has an empty line somewhere in between.\n");
+			free(map);
+			free(game);
+			exit(0);
+		}
+		i++;
 	}
 }

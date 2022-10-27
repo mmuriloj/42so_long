@@ -6,7 +6,7 @@
 /*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 10:54:43 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/26 23:04:30 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/28 00:01:49 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,14 +76,18 @@ typedef struct s_game
 void	check_args(int argc, char *argv, t_game *game, size_t len);
 void	check_boundaries(t_game *game);
 void	check_empty_line(char *map, t_game *game);
-void	check_map_chars(char *tmp_map, t_game *game);
-void	count_map_elems(char *map, t_game *game);
-void	check_map_shape(t_game *game);
+void	check_chars(char *tmp_map, t_game *game);
+int		mouse_click(int event, t_game *game);
+void	count_elems(char *map, t_game *game);
+void	check_map(char *map, t_game *game);
+void	check_shape(t_game *game);
 void	count_moves(t_game *game);
 void	create_window(t_game *game);
+void	destroy_all_images(t_game *game);
 void	error_msg(char *msg, t_game *game);
+void	error_boundary(t_game *game);
 void	floodfill(int x, int y, t_game *game);
-void	free_game(t_game *game);
+int		free_game(t_game *game);
 void	free_map(t_game *game);
 void	get_sprite(t_game *game, int x, int y);
 void	init_game_vars(t_game *game);

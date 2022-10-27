@@ -6,7 +6,7 @@
 /*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 09:34:34 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/27 01:32:22 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/27 18:04:27 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ void	check_args(int argc, char *argv, t_game *game, size_t len)
 
 	if (argc > 2)
 	{
+		ft_printf("Too many arguments\n");
 		free(game);
-		ft_printf("Too many arguments");
 		exit(0);
 	}
 	if (len < 5 || argv[len - 4] != '.' || argv[len - 3] != 'b' \
 	|| argv[len - 2] != 'e' || argv[len - 1] != 'r')
 	{
-		free(game);
 		ft_printf("Error. Map file extension must be .ber\n");
+		free(game);
 		exit(0);
 	}
 	fd = open(argv, O_RDONLY);

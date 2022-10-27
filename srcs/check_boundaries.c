@@ -6,7 +6,7 @@
 /*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 12:03:39 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/27 01:33:04 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/27 19:11:19 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,24 +21,14 @@ void	check_boundaries(t_game *game)
 	row = 1;
 	if (invalid_boundary(game->map.loaded[0]) || \
 	invalid_boundary(game->map.loaded[game->map.rows - 1]))
-	{
-		free_map(game);
-		free(game);
-		ft_printf("Map must be surrounded by walls");
-		exit(EXIT_FAILURE);
-	}
+		error_boundary(game);
 	else
 	{
 		while (row < game->map.rows - 1)
 		{
 			if (game->map.loaded[row][0] != '1' || \
 			game->map.loaded[row][game->map.cols - 1] != '1')
-			{
-				free_map(game);
-				free(game);
-				ft_printf("Map must be surrounded by walls");
-				exit(EXIT_FAILURE);
-			}
+				error_boundary(game);
 			row++;
 		}
 	}
@@ -62,4 +52,12 @@ int	invalid_boundary(char *row)
 		i++;
 	}
 	return (invalid_char);
+}
+
+void	error_boundary(t_game *game)
+{
+	ft_printf("Map must be surrounded by walls");
+	free_map(game);
+	free(game);
+	exit(0);
 }

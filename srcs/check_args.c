@@ -6,7 +6,7 @@
 /*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 09:34:34 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/27 01:12:40 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/27 01:32:22 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	check_args(int argc, char *argv, t_game *game, size_t len)
 {
 	int	fd;
-	
+
 	if (argc > 2)
 	{
 		free(game);

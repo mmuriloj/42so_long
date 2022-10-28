@@ -6,7 +6,7 @@
 /*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 18:22:23 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/26 22:58:37 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/28 01:10:16 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	move_player(int new_y, int new_x, t_game *game)
 		game->map.player_coord.y = new_y;
 		game->map.loaded[new_y][new_x] = 'P';
 		game->n_moves++;
-		ft_printf("number of moves: %d\n", game->n_moves);
+		ft_printf("Moves: %d\n", game->n_moves);
 		render_game(game);
 	}
 }

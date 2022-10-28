@@ -6,7 +6,7 @@
 /*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 10:54:43 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/28 00:01:49 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/28 01:09:32 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,13 +77,11 @@ void	check_args(int argc, char *argv, t_game *game, size_t len);
 void	check_boundaries(t_game *game);
 void	check_empty_line(char *map, t_game *game);
 void	check_chars(char *tmp_map, t_game *game);
-int		mouse_click(int event, t_game *game);
 void	count_elems(char *map, t_game *game);
 void	check_map(char *map, t_game *game);
 void	check_shape(t_game *game);
 void	count_moves(t_game *game);
 void	create_window(t_game *game);
-void	destroy_all_images(t_game *game);
 void	error_msg(char *msg, t_game *game);
 void	error_boundary(t_game *game);
 void	floodfill(int x, int y, t_game *game);
@@ -97,7 +95,7 @@ int		invalid_boundary(char *row);
 int		key_hook(int usr_input, t_game *game);
 t_img	load_sprite(void *ptr, t_game *game, char *xpm);
 void	initial_position(t_game *game);
-char	*map_concat(char **s1, const char *s2);
+char	*one_line_map(char **s1, const char *s2);
 void	move_player(int new_y, int new_x, t_game *game);
 void	parse_map(char *map, t_game *game);
 int		render_game(t_game *game);

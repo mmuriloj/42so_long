@@ -6,7 +6,7 @@
 /*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 12:03:39 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/27 19:11:19 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/28 01:11:11 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	invalid_boundary(char *row)
 
 void	error_boundary(t_game *game)
 {
-	ft_printf("Map must be surrounded by walls");
+	ft_printf("Map must be surrounded by walls\n");
 	free_map(game);
 	free(game);
 	exit(0);

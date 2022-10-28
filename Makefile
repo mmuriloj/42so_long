@@ -1,29 +1,44 @@
 NAME = so_long
-CC = clang ./srcs/so_long.c ./libft/libft.a -lX11 -lXext -lmlx -o so_long
+CC = clang -g ./srcs/so_long.c ./libft/libft.a -lX11 -lXext -lmlx -o so_long
 
 LIBFT_DIR = ./libft
+SRCS_DIR = ./srcs/
 
 HEADER = ./srcs/so_long.h
-SRCS = srcs/main.c \
-		srcs/init_map.c \
-		so_long.c
+SRCS =	$(addprefix $(SRCS_DIR),\
+		check_args.c		\
+		create_window.c		\
+		init_game_vars.c	\
+		so_long.c			\
+		validate_map.c		\
+		check_boundaries.c	\
+		error_handling.c	\
+		move_player.c		\
+		check_map.c			\
+		floodfill.c			\
+		render_game.c		\
+		user_input.c		\
 
-MAKE_LIBFT = cd libft/ && make && cd ..
-CLEAN_LIBFT = cd libft/ && make clean && cd ..
 
+MAKE_LIBFT = cd libft/ && make
+CLEAN_LIBFT = cd libft/ && make clean
+FCLEAN_LIBFT = cd libft/ && make fclean && cd ..
 
 all: libft
-	cd ..
 	$(CC)
 
 libft:
 	$(MAKE_LIBFT)
+	cd ..
 
 clean:
-	cd libft/ && make clean && cd ..
+	$(CLEAN_LIBFT)
+	cd ..
+	rm -rf so_long
 
 fclean: clean
-	cd libft/ && make fclean && cd ..
+	$(FCLEAN_LIBFT)
+	cd ..
 
 re: fclean libft all
 

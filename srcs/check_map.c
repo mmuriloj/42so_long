@@ -6,7 +6,7 @@
 /*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 15:58:54 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/28 00:35:31 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/28 01:11:34 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	check_shape(t_game *game)
 		len2 = ft_strlen((char *) game->map.loaded[i +1]);
 		if (len1 != len2)
 		{
-			ft_printf("Error. Map is not rectangular");
+			ft_printf("Error. Map is not rectangular\n");
 			free_map(game);
 			free(game);
 			exit(0);
@@ -58,7 +58,7 @@ void	check_chars(char *map, t_game *game)
 		if (!(map[i] == 48 || map[i] == 49 || map[i] == '\n' \
 		|| map[i] == 67 || map[i] == 69 || map[i] == 80))
 		{
-			ft_printf("Mapfile error: char '%c' forbidden", (char) map[i]);
+			ft_printf("Mapfile error: char '%c' forbidden\n", (char) map[i]);
 			free(map);
 			free(game);
 			exit(0);

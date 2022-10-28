@@ -6,7 +6,7 @@
 /*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 18:41:31 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/28 00:01:40 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/28 01:08:35 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,3 @@ int	free_game(t_game *game)
 	free(game);
 	exit(0);
 }
-
-/*void	destroy_all_images(t_game *game)
-{
-	mlx_destroy_image(game->mlx, game->wall.img_ptr);
-	mlx_destroy_image(game->mlx, game->collectable.img_ptr);
-	mlx_destroy_image(game->mlx, game->background.img_ptr);
-	mlx_destroy_image(game->mlx, game->exit.img_ptr);
-	mlx_destroy_image(game->mlx, game->open_exit.img_ptr);
-	mlx_destroy_image(game->mlx, game->player.img_ptr);
-}*/

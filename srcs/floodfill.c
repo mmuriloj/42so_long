@@ -6,7 +6,7 @@
 /*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 18:04:08 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/27 00:09:08 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/28 04:36:47 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,6 @@
 
 void	floodfill(int new_x, int new_y, t_game *game)
 {
-	int	initial_x;
-	int	initial_y;
-
-	initial_x = game->map.player_coord.x;
-	initial_y = game->map.player_coord.y;
 	if (game->map.floodfill[new_y][new_x] == 'P' || \
 		game->map.floodfill[new_y][new_x] == 'E' || \
 		game->map.floodfill[new_y][new_x] == 'C' || \

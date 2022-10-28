@@ -1,10 +1,9 @@
 NAME = so_long
-#CC = clang -g $(SRCS) ./libft/libft.a -lX11 -lXext -lmlx -o $(NAME)
-CC = gcc    
+CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g
 MLX_FLAGS = -lmlx -lXext -lX11 -lm -lz
 
-LIBFT = ./libft/libft.a 
+LIBFT = ./libft/libft.a
 LIBFT_DIR = ./libft/
 SRCS_DIR = ./srcs/
 

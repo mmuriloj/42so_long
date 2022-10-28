@@ -27,11 +27,10 @@ MAKE_LIBFT = cd $(LIBFT_DIR) && make
 CLEAN_LIBFT = cd $(LIBFT_DIR) && make clean
 FCLEAN_LIBFT = cd $(LIBFT_DIR) && make fclean
 
-all: libft
-	$(CC) $(CFLAGS) $(SRCS) $(LIBFT) $(MLX_FLAGS) -o $(NAME)
-	@echo "\033[1;92mso_long created successfully!\033[0m"
+all: ${LIBFT} ${NAME}
+	
 
-libft:
+${LIBFT}:
 	$(MAKE_LIBFT)
 	cd ..
 
@@ -39,7 +38,10 @@ clean:
 	clear
 	$(CLEAN_LIBFT)
 	cd ..
-	
+
+${NAME}: 		
+		${CC} ${SRCS} ${LIBFT} ${CFLAGS} ${MLX_FLAGS} -o ${NAME}
+		@echo "\033[1;92mso_long created successfully!\033[0m"
 
 fclean: clean
 	cd ..
@@ -51,5 +53,3 @@ fclean: clean
 re: fclean libft all
 
 .PHONY: re fclean clean libft all
-
-

@@ -6,7 +6,7 @@
 /*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 15:58:54 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/28 01:11:34 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/28 17:34:15 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ void	check_empty_line(char *map, t_game *game)
 	len = ft_strlen(map);
 	if (map[0] == '\n' || map[len - 1] == '\n')
 	{
-		ft_printf("Error. Map starts/ends with an empty line.");
+		ft_printf("Error. Map starts/ends with an empty line.\n");
 		free(map);
 		free(game);
 		exit(0);

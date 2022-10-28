@@ -6,7 +6,7 @@
 /*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 12:03:39 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/28 01:11:11 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/28 04:18:32 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 void	check_boundaries(t_game *game)
 {
 	int	row;
-	int	col;
 
 	row = 1;
 	if (invalid_boundary(game->map.loaded[0]) || \

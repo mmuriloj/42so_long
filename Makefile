@@ -1,7 +1,11 @@
 NAME = so_long
-CC = clang -g ./srcs/so_long.c ./libft/libft.a -lX11 -lXext -lmlx -o so_long
+#CC = clang -g $(SRCS) ./libft/libft.a -lX11 -lXext -lmlx -o $(NAME)
+CC = gcc    
+CFLAGS = -Wall -Wextra -Werror -g
+MLX_FLAGS = -lmlx -lXext -lX11 -lm -lz
 
-LIBFT_DIR = ./libft
+LIBFT = ./libft/libft.a 
+LIBFT_DIR = ./libft/
 SRCS_DIR = ./srcs/
 
 HEADER = ./srcs/so_long.h
@@ -17,28 +21,33 @@ SRCS =	$(addprefix $(SRCS_DIR),\
 		check_map.c			\
 		floodfill.c			\
 		render_game.c		\
-		user_input.c		\
+		user_input.c)
 
 
-MAKE_LIBFT = cd libft/ && make
-CLEAN_LIBFT = cd libft/ && make clean
-FCLEAN_LIBFT = cd libft/ && make fclean && cd ..
+MAKE_LIBFT = cd $(LIBFT_DIR) && make
+CLEAN_LIBFT = cd $(LIBFT_DIR) && make clean
+FCLEAN_LIBFT = cd $(LIBFT_DIR) && make fclean
 
 all: libft
-	$(CC)
+	$(CC) $(CFLAGS) $(SRCS) $(LIBFT) $(MLX_FLAGS) -o $(NAME)
+	@echo "\033[1;92mso_long created successfully!\033[0m"
 
 libft:
 	$(MAKE_LIBFT)
 	cd ..
 
 clean:
+	clear
 	$(CLEAN_LIBFT)
 	cd ..
-	rm -rf so_long
+	
 
 fclean: clean
-	$(FCLEAN_LIBFT)
 	cd ..
+	$(FCLEAN_LIBFT)
+	rm -rf so_long
+	@echo "\033[1;92mso_long removed successfully!\033[0m"
+
 
 re: fclean libft all
 

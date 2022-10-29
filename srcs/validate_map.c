@@ -6,7 +6,7 @@
 /*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 17:07:53 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/28 01:12:49 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/29 02:47:21 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ void	validate_map(char *argv, t_game *game)
 	check_boundaries(game);
 	initial_position(game);
 	verify_floodfill(game);
-	if (game->map.valid == 1)
-		ft_printf("Map sucessfully loaded!\n");
-	else
+	if (game->map.valid != 1)
 		error_msg("Error. Map couldn't be loaded.\n", game);
 }
 
@@ -35,14 +33,12 @@ void	parse_map(char *argv, t_game *game)
 	tmp_map = ft_strdup("");
 	fd = open(argv, O_RDONLY);
 	if (fd == -1)
-	{
-		free(tmp_map);
-		free(game);
-		exit(0);
-	}
+		free_tmp_map(tmp_map, game, "Error\nFile not found.");
 	while (1)
 	{
 		row = get_next_line(fd);
+		if (game->map.rows == 0 && row == NULL)
+			free_tmp_map(tmp_map, game, "Error\nEmpty file.");
 		if (row == NULL)
 			break ;
 		tmp_map = one_line_map(&tmp_map, row);
@@ -67,4 +63,12 @@ char	*one_line_map(char **s1, const char *s2)
 	ft_strlcat(s, s2, ft_strlen(*s1) + ft_strlen(s2) + 1);
 	free(*s1);
 	return (s);
+}
+
+void	free_tmp_map(char *tmp_map, t_game *game, char *str)
+{
+	ft_printf("%s\n", str);
+	free(tmp_map);
+	free(game);
+	exit(0);
 }

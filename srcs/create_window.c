@@ -6,7 +6,7 @@
 /*   By: mumontei <mumontei@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 18:28:54 by mumontei          #+#    #+#             */
-/*   Updated: 2022/10/28 02:45:57 by mumontei         ###   ########.fr       */
+/*   Updated: 2022/10/29 00:49:44 by mumontei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,17 @@ void	create_window(t_game *game)
 	h = game->map.rows * XPM_HEIGHT;
 	game->mlx = mlx_init();
 	if (game->mlx == NULL)
-		error_msg("Error. Couldn't start Minilibx.", game);
+	{
+		ft_printf("Error. Couldn't start Minilibx.", game);
+		free_map(game);
+		free(game);
+		exit(0);
+	}
 	game->mlx_win = mlx_new_window(game->mlx, w, h, "@mumontei's So Long");
 	if (game->mlx_win == NULL)
 	{
+		free_map(game);
+		free(game);
 		free(game->mlx);
 		error_msg("Error. Couldn't start window.", game);
 	}

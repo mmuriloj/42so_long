@@ -21,7 +21,7 @@ void	validate_map(char *argv, t_game *game)
 	initial_position(game);
 	verify_floodfill(game);
 	if (game->map.valid != 1)
-		error_msg("Error. Map couldn't be loaded.\n", game);
+		error_msg("Error.\nMap couldn't be loaded.\n", game);
 }
 
 void	parse_map(char *argv, t_game *game)

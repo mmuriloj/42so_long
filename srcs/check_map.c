@@ -38,7 +38,7 @@ void	check_shape(t_game *game)
 		len2 = ft_strlen((char *) game->map.loaded[i +1]);
 		if (len1 != len2)
 		{
-			ft_printf("Error. Map is not rectangular\n");
+			ft_printf("Error.\nMap is not rectangular\n");
 			free_map(game);
 			free(game);
 			exit(0);
@@ -58,7 +58,7 @@ void	check_chars(char *map, t_game *game)
 		if (!(map[i] == 48 || map[i] == 49 || map[i] == '\n' \
 		|| map[i] == 67 || map[i] == 69 || map[i] == 80))
 		{
-			ft_printf("Mapfile error: char '%c' forbidden\n", (char) map[i]);
+			ft_printf("Error.\nChar '%c' forbidden\n", (char) map[i]);
 			free(map);
 			free(game);
 			exit(0);
@@ -85,7 +85,7 @@ void	count_elems(char *map, t_game *game)
 	if (game->map.n_collects < 1 || game->map.n_exits != 1 \
 	|| game->map.n_players != 1)
 	{
-		ft_printf("Map must contain\n1 starting position\n1 exit \
+		ft_printf("Error.\nMap must contain\n1 starting position\n1 exit \
 		\nat least, 1 collectible\n");
 		free(map);
 		free(game);
@@ -101,7 +101,7 @@ void	check_empty_line(char *map, t_game *game)
 	len = ft_strlen(map);
 	if (map[0] == '\n' || map[len - 1] == '\n')
 	{
-		ft_printf("Error. Map starts/ends with an empty line.\n");
+		ft_printf("Error.\nMap starts/ends with an empty line.\n");
 		free(map);
 		free(game);
 		exit(0);
@@ -111,7 +111,7 @@ void	check_empty_line(char *map, t_game *game)
 	{
 		if (map[i] == '\n' && map[i + 1] == '\n')
 		{
-			ft_printf("Map has an empty line somewhere in between.\n");
+			ft_printf("Error.\nEmpty line somewhere in between.\n");
 			free(map);
 			free(game);
 			exit(0);

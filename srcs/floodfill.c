@@ -17,13 +17,19 @@ void	floodfill(int new_x, int new_y, t_game *game)
 {
 	if (game->map.floodfill[new_y][new_x] == 'P' || \
 		game->map.floodfill[new_y][new_x] == 'C' || \
+		game->map.floodfill[new_y][new_x] == 'E' || \
 		game->map.floodfill[new_y][new_x] == '0')
 	{
-		game->map.floodfill[new_y][new_x] = 'V';
-		floodfill(new_x + 1, new_y, game);
-		floodfill(new_x - 1, new_y, game);
-		floodfill(new_x, new_y + 1, game);
-		floodfill(new_x, new_y - 1, game);
+		if (game->map.floodfill[new_y][new_x] == 'E')
+			game->map.floodfill[new_y][new_x] = 'Z';
+		else
+		{
+			game->map.floodfill[new_y][new_x] = 'V';
+			floodfill(new_x + 1, new_y, game);
+			floodfill(new_x - 1, new_y, game);
+			floodfill(new_x, new_y + 1, game);
+			floodfill(new_x, new_y - 1, game);
+		}
 	}
 }
 
@@ -39,10 +45,11 @@ void	verify_floodfill(t_game *game)
 		j = 0;
 		while (j < game->map.cols)
 		{
-			if (game->map.floodfill[i][j] == 'C')
+			if (game->map.floodfill[i][j] == 'C' || \
+			game->map.floodfill[i][j] == 'E')
 			{
 				game->map.valid = 0;
-				ft_printf("Error. Path is not valid.\n");
+				ft_printf("Error.\nPath is not valid.\n");
 				free_map(game);
 				free(game);
 				exit(0);
@@ -52,3 +59,21 @@ void	verify_floodfill(t_game *game)
 		i++;
 	}
 }
+
+/*
+// APAGAR
+	i = 0;
+	j = 0;
+	while (i < game->map.rows)
+	{
+		j = 0;
+		while (j < game->map.cols)
+		{
+			ft_printf("%c", game->map.floodfill[i][j]);
+			j++;
+		}
+		ft_printf("\n");
+		i++;
+	}
+	// ATÈ AQUI
+*/

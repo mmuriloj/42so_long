@@ -23,7 +23,7 @@ void	create_window(t_game *game)
 	game->mlx = mlx_init();
 	if (game->mlx == NULL)
 	{
-		ft_printf("Error. Couldn't start Minilibx.", game);
+		ft_printf("Error.\nCouldn't start Minilibx.", game);
 		free_map(game);
 		free(game);
 		exit(0);
@@ -34,7 +34,7 @@ void	create_window(t_game *game)
 		free_map(game);
 		free(game);
 		free(game->mlx);
-		error_msg("Error. Couldn't start window.", game);
+		error_msg("Error.\nCouldn't start window.", game);
 	}
 }
 
@@ -44,7 +44,7 @@ t_img	load_sprite(void *ptr, t_game *game, char *xpm)
 
 	spr.img_ptr = mlx_xpm_file_to_image(ptr, xpm, &spr.x, &spr.y);
 	if (spr.img_ptr == NULL)
-		error_msg("Error. Sprite couldn't be found.", game);
+		error_msg("Error.\nSprite couldn't be found.", game);
 	return (spr);
 }
 

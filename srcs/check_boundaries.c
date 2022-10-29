@@ -55,7 +55,7 @@ int	invalid_boundary(char *row)
 
 void	error_boundary(t_game *game)
 {
-	ft_printf("Map must be surrounded by walls\n");
+	ft_printf("Error.\nMap must be surrounded by walls\n");
 	free_map(game);
 	free(game);
 	exit(0);

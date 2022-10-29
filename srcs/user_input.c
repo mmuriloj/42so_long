@@ -29,7 +29,7 @@ int	key_hook(int usr_input, t_game *game)
 		game->map.player_coord.x, game);
 	if (usr_input == KEY_ESC)
 	{
-		ft_printf("you have pressed ESC key. Quiting game...\n", game);
+		ft_printf("You have pressed ESC key. Quiting game...\n", game);
 		free_game(game);
 	}
 	return (0);

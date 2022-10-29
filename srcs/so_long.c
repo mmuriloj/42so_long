@@ -20,7 +20,7 @@ int	main(int argc, char **argv)
 	game = malloc(sizeof(t_game));
 	if (!argv[1])
 	{
-		ft_printf("Map file is missing.\n");
+		ft_printf("Error.\nMap file is missing.\n");
 		free(game);
 		exit(0);
 	}

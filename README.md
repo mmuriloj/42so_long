@@ -1,5 +1,5 @@
 <p align="center"><img src="https://game.42sp.org.br/static/assets/achievements/so_longm.png"> </p>
-<p align="center"><b>succeeded with 101%*</b></p>
+<p align="center"><b>succeeded with 101%</b></p>
 <p align="center"><img align="middle" src="https://github.com/mmuriloj/so_long/blob/155907273c937e587dd06440df251b80b3081394/so_long.gif" width=65% height=65% /></p>
 
 
